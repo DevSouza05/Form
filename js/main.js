@@ -60,10 +60,10 @@ const updateTodo = (text) => {
 
 function addTask(){
 const taskInput = document.getElementById("todo-input").value;
-console.log(taskInput)
+console.log("esse é o log:" + taskInput);
 
-const tableTasks = document.querySelector("#tbTasks").getAttributeNames('tbody')[0]
-const newLine = tableTasks.inserRow();
+const tableTasks = document.querySelector(".tbTasks").getAttributeNames('tbody');
+const newLine = tableTasks.insertRow();
 const cellCode = newLine.insertCell(0);
 const cellTask = newLine.insertCell(1);
 
