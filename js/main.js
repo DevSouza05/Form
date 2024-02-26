@@ -6,6 +6,7 @@ const editInput = document.querySelector('#edit-input');
 const cancelEditBtn = document.querySelector('#cancel-edit-btn');
 
 let oldInputValue = "";
+let codeTask = 1;
 
 //função 
 
@@ -57,6 +58,20 @@ const updateTodo = (text) => {
 
 }
 
+function addTask(){
+const taskInput = document.getElementById("todo-input").value;
+
+const tableTasks = document.querySelector("#tbTasks").getAttributeNames('tbody')[0]
+const newLine = tableTasks.inserRow();
+const cellCode = newLine.insertCell(0);
+const cellTask = newLine.insertCell(1);
+
+
+cellCode.innerHTML=codeTask++;
+cellTask.innerHTML=taskInput;
+
+}
+
 //eventos
 todoForm.addEventListener("submit", (e)=>{
     e.preventDefault();
@@ -71,7 +86,7 @@ todoForm.addEventListener("submit", (e)=>{
     }
 );
 
-//2 evento concluir e remover
+//2 eventos concluir e remover
 document.addEventListener("click",(e)=>{
   const targetEl =  e.target;
   const parentEl = targetEl.closest("div");
