@@ -60,6 +60,7 @@ const updateTodo = (text) => {
 
 function addTask(){
 const taskInput = document.getElementById("todo-input").value;
+console.log(taskInput)
 
 const tableTasks = document.querySelector("#tbTasks").getAttributeNames('tbody')[0]
 const newLine = tableTasks.inserRow();
@@ -69,6 +70,8 @@ const cellTask = newLine.insertCell(1);
 
 cellCode.innerHTML=codeTask++;
 cellTask.innerHTML=taskInput;
+
+document.getElementById("todo-form").reset();
 
 }
 
@@ -83,6 +86,8 @@ todoForm.addEventListener("submit", (e)=>{
     if(inputValue){
        saveTodo(inputValue);
     }
+
+
     }
 );
 
