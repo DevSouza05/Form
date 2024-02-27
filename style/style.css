@@ -81,6 +81,7 @@ input,select{
 
 .form-control{
     display: flex;
+    gap: 10px;
 }
 
 .form-control input{
@@ -187,8 +188,8 @@ th, td {
 
 
 /* adicionando responsividade */
-
-@media
+/* 
+@media */
 
 
 
