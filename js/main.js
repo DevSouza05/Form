@@ -1,3 +1,5 @@
+"use strict"
+
 const todoForm = document.querySelector('#todo-form');
 const todoInput = document.querySelector('#todo-input');
 const todoList = document.querySelector('#todo-list');
@@ -5,9 +7,6 @@ const editForm = document.querySelector('#edit-form');
 const editInput = document.querySelector('#edit-input');
 const cancelEditBtn = document.querySelector('#cancel-edit-btn');
 const bntTable = document.querySelector("#SedinTable")
-
-
-
 
 
 let oldInputValue = "";
@@ -91,10 +90,14 @@ bntTable.addEventListener("click", ()=>{
         const calcCode = newLine.insertCell(0)
         const insTask=newLine.insertCell(1)
         const Status=newLine.insertCell(2)
+        const Setor=newLine.insertCell(3)
 
         calcCode.innerHTML = codeTask++
         insTask.innerHTML= retorno; 
         Status.innerHTML="Aberto"
+        Setor.innerHTML="A definir"
+
+      
     }
 })
 
