@@ -4,13 +4,18 @@ const todoList = document.querySelector('#todo-list');
 const editForm = document.querySelector('#edit-form');
 const editInput = document.querySelector('#edit-input');
 const cancelEditBtn = document.querySelector('#cancel-edit-btn');
+const bntTable = document.querySelector("#SedinTable")
+
+
+
+
 
 let oldInputValue = "";
 let codeTask = 1;
 
 //função 
 
-const saveTodo= (text) => {
+const saveTodo = (text) => {
     const todo = document.createElement("div");
     todo.classList.add("todo");
 
@@ -39,7 +44,7 @@ const saveTodo= (text) => {
     todoInput.focus();
 }
 
-const toggleforms= () => {
+const toggleforms = () => {
     editForm.classList.toggle("hide");
     todoForm.classList.toggle("hide");
     todoList.classList.toggle("hide");
@@ -48,83 +53,91 @@ const toggleforms= () => {
 const updateTodo = (text) => {
     const todos = document.querySelectorAll(".todo");
 
-    todos.forEach((todo) =>{
+    todos.forEach((todo) => {
         let todoTitle = todo.querySelector("h3");
 
-        if(todoTitle.innerText === oldInputValue){
+        if (todoTitle.innerText === oldInputValue) {
             todoTitle.innerText = text;
         }
     })
 
 }
 
-function addTask(){
-const taskInput = document.getElementById("todo-input").value;
-
-const tableTasks = document.querySelector("#tbTasks").getAttributeNames('tbody')[0]
-const newLine = tableTasks.inserRow();
-const cellCode = newLine.insertCell(0);
-const cellTask = newLine.insertCell(1);
-
-
-cellCode.innerHTML=codeTask++;
-cellTask.innerHTML=taskInput;
-
-}
-
 //eventos
-todoForm.addEventListener("submit", (e)=>{
+todoForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     console.log("Enviou form");
 
-    const inputValue = todoInput.value;
+    let inputValue = todoInput.value;
 
-    if(inputValue){
-       saveTodo(inputValue);
+    if (inputValue) {
+        saveTodo(inputValue);
     }
-    }
+
+
+}
 );
 
+
+bntTable.addEventListener("click", ()=>{
+    const retorno = todoInput.value;
+   
+    if(retorno){
+        const tableTasks = document.querySelector(".tbTasks").getElementsByTagName('tbody')[0];
+        // console.log(tableTasks)
+
+        const newLine = tableTasks.insertRow()
+        const calcCode = newLine.insertCell(0)
+        const insTask=newLine.insertCell(1)
+        const Status=newLine.insertCell(2)
+
+        calcCode.innerHTML = codeTask++
+        insTask.innerHTML= retorno; 
+        Status.innerHTML="Aberto"
+    }
+})
+
+
 //2 eventos concluir e remover
-document.addEventListener("click",(e)=>{
-  const targetEl =  e.target;
-  const parentEl = targetEl.closest("div");
-  let todoTitle;
+document.addEventListener("click", (e) => {
+    const targetEl = e.target;
+    const parentEl = targetEl.closest("div");
+    let todoTitle;
 
-  if(parentEl && parentEl.querySelector("h3")){
-    todoTitle =parentEl.querySelector("h3").innerText;
-  }
+    if (parentEl && parentEl.querySelector("h3")) {
+        todoTitle = parentEl.querySelector("h3").innerText;
+    }
 
-  if(targetEl.classList.contains("finish-todo")){
-   parentEl.classList.toggle("done")
-  }
+    if (targetEl.classList.contains("finish-todo")) {
+        parentEl.classList.toggle("done")
+    }
 
-  if(targetEl.classList.contains("remove-todo")){
-    parentEl.remove();
-}
+    if (targetEl.classList.contains("remove-todo")) {
+        parentEl.remove();
+    }
 
-if(targetEl.classList.contains("edit-todo")){
- toggleforms();
+    if (targetEl.classList.contains("edit-todo")) {
+        toggleforms();
 
- editInput.value = todoTitle;
- oldInputValue = todoTitle;
+        editInput.value = todoTitle;
+        oldInputValue = todoTitle;
 
-}
+    }
 });
 
-cancelEditBtn.addEventListener("click",(e)=>{
+cancelEditBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
     toggleforms();
 });
 
-editForm.addEventListener("click",(e)=>{
+editForm.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const editInputValue =editInput.value
+    const editInputValue = editInput.value
 
-    if(editInputValue){
+    if (editInputValue) {
         updateTodo(editInputValue)
     }
 })
