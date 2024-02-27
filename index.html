@@ -12,7 +12,7 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--js-->
-    <script src="./js/main.js" defer></script>
+   
 </head>
 
 <body>
@@ -25,22 +25,23 @@
 
         <form id="todo-form">
             <label for="todo-input">Adicione a sua tarefa: </label>
-
+            
             <div class="form-control">
                 <input type="text" id="todo-input" name="todo-input" placeholder="o que voce vai fazer?..." required>
+             
 
-                <button type="submit" onclick="">
+                <button type="submit" id="SedinTable"  onclick="">
                     <i class="fa-thin fa-plus "></i>
                 </button>
 
-                <button type="button" onclick="addTask()">
+                <!-- <button type="submit" onclick="">
                     <i class="fa-thin fa-plus ">tb</i>
-                </button>
+                </button> -->
 
             </div>
         </form>
 
-        <form id="edit-form" class="hide">
+        <!-- <form id="edit-form" class="hide">
             <p> Edite a sua tarefa</p>
 
             <div class="form-control">
@@ -50,7 +51,7 @@
                 </button>
             </div>
             <button id="cancel-edit-btn">Cancelar</button>
-        </form>
+        </form> -->
 
         <!-- <div class="toolbar">
             <div id="search">
@@ -79,10 +80,13 @@
             </div>
         </div> -->
 
-        <div id="todo-list">
+
+        <!--responsavel por enviar todo -->
+         <div id="todo-list">
             <div class="todo done">
                 <h3>Estou fazendo alguma coisa...</h3>
                 <button class="finish-todo">
+                    <i class="fa-solid fa-check"></i>
                 </button>
 
                 <button class="edit-todo">
@@ -93,7 +97,7 @@
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-
+        
             <div class="todo">
                 <h3>Estudar JavaScript...</h3>
                 <button class="finish-todo">
@@ -108,16 +112,17 @@
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-        </div>
+        </div> 
     </div>
 
     <div class="DivCadTask">
         <table class="tbTasks">
             <thead>
                 <tr>
-                    <th>Código</th>
-                    <th>Task</th>
+                    <th>id</th>
+                    <th>Tarefa</th>
                     <th>Status</th>
+                    <th>Setor</th>
                     <th>Observação</th>
                 </tr>
             </thead>
