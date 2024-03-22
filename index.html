@@ -24,13 +24,14 @@
         </header>
 
         <form id="todo-form">
-            <label for="todo-input">Descriçao da tarefa: </label>
+            <label for="todo-input" class="label_todo_form">Descriçao da tarefa: </label>
+            <label for="todo-input" class="label_todo_form">Setor:</label>
             
             <div class="form-control">
-                <input type="text" id="todo-input" name="todo-input" placeholder="o que voce vai fazer?..." required>
-             
+                <input type="text" id="todo-input" name="todo-input" placeholder="Solicite aqui..." required>
+                <input type="text" id="todo-input__Setor" name="todo-input__Setor" placeholder="Setor solicitante..." required>
 
-                <button type="submit" id="SedinTable"  onclick="">
+                <button type="submit" id="SedinTable">
                     <i class="fa-thin fa-plus "></i>
                 </button>
 
@@ -113,6 +114,8 @@
                 </button>
             </div>
         </div> 
+
+     
     </div>
 
     <div class="DivCadTask">
@@ -129,6 +132,8 @@
             <tbody></tbody>
         </table>
     </div>
+
+   
     <script src="./js/main.js"></script>
 </body>
 

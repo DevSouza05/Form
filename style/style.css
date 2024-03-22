@@ -79,6 +79,11 @@ input,select{
     font-weight: bold;
 }
 
+.label_todo_form{
+    display: inline;
+    margin: 1rem;
+}
+
 .form-control{
     display: flex;
     gap: 10px;
@@ -166,24 +171,25 @@ input,select{
 
 .DivCadTask{
     display: flex;
-    text-align: left;
+    justify-content: center;
+  
 }
 
 table {
-    
-    margin: 0 0 0 10rem;
     border-collapse: collapse;
-    width: 80%;
+    width: 100%;
 }
 
 table, th, td {
     border: 1px solid black;
+    width: 40%;
 }
 
 
 th, td {
     text-align: center;
-    padding: 10px;
+    padding: 8px;
+    
 }
 
 
