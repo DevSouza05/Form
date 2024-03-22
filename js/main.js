@@ -7,6 +7,7 @@ const editForm = document.querySelector('#edit-form');
 const editInput = document.querySelector('#edit-input');
 const cancelEditBtn = document.querySelector('#cancel-edit-btn');
 const bntTable = document.querySelector("#SedinTable")
+const Setor = document.querySelector("#todo-input__Setor");
 
 
 let oldInputValue = "";
@@ -81,6 +82,8 @@ todoForm.addEventListener("submit", (e) => {
 
 bntTable.addEventListener("click", ()=>{
     const retorno = todoInput.value;
+    const SetorVl= Setor.value;
+    console.log(SetorVl)
    
     if(retorno){
         const tableTasks = document.querySelector(".tbTasks").getElementsByTagName('tbody')[0];
@@ -95,7 +98,7 @@ bntTable.addEventListener("click", ()=>{
         calcCode.innerHTML = codeTask++
         insTask.innerHTML= retorno; 
         Status.innerHTML="Aberto"
-        Setor.innerHTML="A definir"
+        Setor.innerHTML= SetorVl;
 
       
     }
